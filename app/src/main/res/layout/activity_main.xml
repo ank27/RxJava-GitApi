@@ -41,12 +41,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:id="@+id/no_coupon_text"
+            android:id="@+id/no_issue_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No issue Found"
             android:textAlignment="center"
             style="@style/TextViewAppearanceMediumBold"
             android:layout_centerInParent="true"/>
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_below="@+id/no_issue_text"
+            android:text="Search"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_shape_fill"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 </RelativeLayout>

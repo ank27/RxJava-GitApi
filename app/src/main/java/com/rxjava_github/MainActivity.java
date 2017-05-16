@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,7 +35,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private List<RepoIssue> repoIssues;
     private ProgressBar progressBar;
     LinearLayout issueLayout;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbarIssues;
     Network mNetwork;
     String TAG = "MainActivity";
-
+    Button search_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,13 +59,16 @@ public class MainActivity extends AppCompatActivity {
         issue_container = (RecyclerView) findViewById(R.id.issue_container);
         toolbarIssues.setTitle("Github Repo Issues");
         toolbarIssues.setTitleTextColor(ContextCompat.getColor(activity,R.color.white));
+        search_btn=(Button) findViewById(R.id.search_btn);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         issue_container.setLayoutManager(layoutManager);
         issue_container.setHasFixedSize(true);
         invalidateOptionsMenu();
         adapter = new IssuesAdapter(activity);
+
         issue_container.setAdapter(adapter);
         mNetwork= new Network();
+        search_btn.setOnClickListener(this);
         showAlertDialog();
     }
 
@@ -141,4 +145,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View view) {
+        if (view.getId()==R.id.search_btn){
+            showAlertDialog();
+        }
+    }
 }
