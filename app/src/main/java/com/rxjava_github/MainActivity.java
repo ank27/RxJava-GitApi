@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         no_issue_layout= (RelativeLayout) findViewById(R.id.no_issue_layout);
         toolbarIssues= (Toolbar) findViewById(R.id.toolbarMain);
         issue_container = (RecyclerView) findViewById(R.id.issue_container);
-
+        toolbarIssues.setTitle("Github Repo Issues");
+        toolbarIssues.setTitleTextColor(ContextCompat.getColor(activity,R.color.white));
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         issue_container.setLayoutManager(layoutManager);
         issue_container.setHasFixedSize(true);
