@@ -45,8 +45,8 @@ public class IssuesAdapter extends RecyclerView.Adapter<IssuesAdapter.ViewHolder
     public void onBindViewHolder(final IssuesAdapter.ViewHolder holder, final int position) {
         RepoIssue issue = issueList.get(position);
         holder.title.setText(issue.title);
-        holder.number.setText(issue.number);
-        holder.comment_number.setText(issue.comments);
+        holder.number.setText(issue.number+"");
+        holder.comment_number.setText(issue.comments+"");
     }
 
     @Override
