@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         issue_container.setLayoutManager(layoutManager);
         issue_container.setHasFixedSize(true);
-
+        invalidateOptionsMenu();
         adapter = new IssuesAdapter(activity);
         issue_container.setAdapter(adapter);
         mNetwork= new Network();
@@ -83,27 +83,9 @@ public class MainActivity extends AppCompatActivity {
                                 if (username.length() == 0 || reponame.length() == 0)
                                     Toast.makeText(activity.getApplicationContext(), "Please fill both field", Toast.LENGTH_SHORT).show();
                                 else {
-//                                    Log.d(TAG, "fetching issues");
-//                                    mNetwork.rxFetchRepoIsuue(username, reponame).subscribeOn(Schedulers.io())
-//                                            .observeOn(AndroidSchedulers.mainThread()).subscribe(repoIssues -> {
-//                                                progressBar.setVisibility(View.GONE);
-//                                                if (repoIssues.size()>0) {
-//                                                    issueLayout.setVisibility(View.VISIBLE);
-//                                                    no_issue_layout.setVisibility(View.GONE);
-//                                                    adapter.updateData(repoIssues);
-//                                                }else {
-//                                                    Toast.makeText(activity.getApplicationContext(),"No issues in repo",Toast.LENGTH_SHORT).show();
-//                                                    no_issue_layout.setVisibility(View.VISIBLE);
-//                                                    issueLayout.setVisibility(View.GONE);
-//                                                }
-//                                            },
-//
-//                                            e ->
-//                                                    progressBar.setVisibility(View.GONE),
-//                                            ()->
-//                                                    progressBar.setVisibility(View.GONE));
-
                                     Log.d(TAG, "fetching issues");
+                                    progressBar.setVisibility(View.VISIBLE);
+                                    no_issue_layout.setVisibility(View.GONE);
                                     mNetwork.rxFetchRepoIsuue(username, reponame).subscribeOn(Schedulers.io())
                                             .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<List<RepoIssue>>() {
                                         @Override
@@ -114,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void onError(Throwable e) {
                                             progressBar.setVisibility(View.GONE);
+                                            no_issue_layout.setVisibility(View.VISIBLE);
                                         }
 
                                         @Override
