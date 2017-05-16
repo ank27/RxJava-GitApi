@@ -9,7 +9,7 @@
     <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
+        <item name="windowActionBar">true</item>
         <item name="android:windowBackground">@color/white</item>
     </style>
     <style name="TextViewAppearance" parent="TextAppearance.AppCompat">
@@ -69,13 +69,5 @@
         <item name="android:textColor">@style/ToolbarTitle</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="Theme.AppCompat.Light.NoActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-    <style name="CustomDialogThemeActivity" parent="Theme.AppCompat.Light.Dialog">
-        <item name="android:windowNoTitle">false</item>
-        <item name="android:windowFullscreen">false</item>
-        <item name="android:windowTitleBackgroundStyle">@android:color/transparent</item>
-        <item name="windowActionBar">false</item>
-    </style>
 </resources>

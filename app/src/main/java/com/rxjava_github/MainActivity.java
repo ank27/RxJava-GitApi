@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         issue_container = (RecyclerView) findViewById(R.id.issue_container);
         toolbarIssues.setTitle("Github Repo Issues");
         toolbarIssues.setTitleTextColor(ContextCompat.getColor(activity,R.color.white));
+        setSupportActionBar(toolbarIssues);
         search_btn=(Button) findViewById(R.id.search_btn);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         issue_container.setLayoutManager(layoutManager);
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
-
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
