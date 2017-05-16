@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rxjava_github.MainActivity">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarMainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarMain"
+            android:layout_width="match_parent"
+            style="@style/Toolbar"
+            android:layout_height="?attr/actionBarSize">
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:gravity="center" />
+    <LinearLayout
+        android:id="@+id/issuelayout"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/appBarMainActivity"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/issue_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/no_issue_layout"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/no_coupon_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No issue Found"
+            android:textAlignment="center"
+            style="@style/TextViewAppearanceMediumBold"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</RelativeLayout>
